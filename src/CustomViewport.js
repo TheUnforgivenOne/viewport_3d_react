@@ -69,7 +69,22 @@ const renderViewport = async (id, imageIds) => {
   }
 
   toolGroup.addViewport(VIEWPORT_ID + id, 'renderingEngine');
-};
+
+  const createZoomPanSynchronizer = cornerstoneTools.synchronizers.createZoomPanSynchronizer;
+
+  if (!cornerstoneTools.SynchronizerManager.getSynchronizer('sync')) {
+    createZoomPanSynchronizer('sync');
+  };
+
+  const sync = cornerstoneTools.SynchronizerManager.getSynchronizer('sync');
+  sync.add({
+    renderingEngineId: 'renderingEngine',
+    viewportId: VIEWPORT_ID + id,
+  });
+
+}
+
+
 
 const options = ['axial', 'sagittal', 'coronal', 'acquisition'];
 

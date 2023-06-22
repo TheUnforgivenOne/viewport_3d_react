@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import cornerstoneWADOImageLoader from 'cornerstone-wado-image-loader';
 import { imageLoader } from '@cornerstonejs/core';
 import useInitCornerstone from './useInitCornerstone';
